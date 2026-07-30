@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mln122_backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=mln122_db;Username=postgres;Password=postgrespassword
+      - Jwt__Secret=SuperSecretKeyForMLN122QuizWebsiteWithMinimum256BitsLengthHere!
+      - Jwt__Issuer=MLN122QuizAPI
+      - Jwt__Audience=MLN122QuizClient
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: mln122_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: mln122_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

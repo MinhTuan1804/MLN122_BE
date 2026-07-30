@@ -1,0 +1,6 @@
+@MLN122_HostAddress = http://localhost:5177
+
+GET {{MLN122_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
