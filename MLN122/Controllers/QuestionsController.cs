@@ -56,12 +56,16 @@ public class QuestionsController : ControllerBase
             }
             else if (effectiveFilter == "wrong")
             {
+                var masteredQIds = _context.UserProgresses
+                    .Where(up => up.UserId == userId.Value && up.IsMastered)
+                    .Select(up => up.QuestionId);
+
                 var wrongProgressQIds = _context.UserProgresses
                     .Where(up => up.UserId == userId.Value && up.CorrectStreak == 0 && !up.IsMastered)
                     .Select(up => up.QuestionId);
 
                 var wrongExamQIds = _context.ExamDetails
-                    .Where(ed => ed.ExamAttempt != null && ed.ExamAttempt.UserId == userId.Value && !ed.IsCorrect)
+                    .Where(ed => ed.ExamAttempt != null && ed.ExamAttempt.UserId == userId.Value && !ed.IsCorrect && !masteredQIds.Contains(ed.QuestionId))
                     .Select(ed => ed.QuestionId);
 
                 var wrongQIds = wrongProgressQIds.Union(wrongExamQIds).Distinct();
@@ -132,12 +136,16 @@ public class QuestionsController : ControllerBase
 
         var starredCount = await _context.UserProgresses.CountAsync(up => up.UserId == userId.Value && up.IsStarred);
         
+        var masteredQIds = _context.UserProgresses
+            .Where(up => up.UserId == userId.Value && up.IsMastered)
+            .Select(up => up.QuestionId);
+
         var wrongProgressQIds = _context.UserProgresses
             .Where(up => up.UserId == userId.Value && up.CorrectStreak == 0 && !up.IsMastered)
             .Select(up => up.QuestionId);
 
         var wrongExamQIds = _context.ExamDetails
-            .Where(ed => ed.ExamAttempt != null && ed.ExamAttempt.UserId == userId.Value && !ed.IsCorrect)
+            .Where(ed => ed.ExamAttempt != null && ed.ExamAttempt.UserId == userId.Value && !ed.IsCorrect && !masteredQIds.Contains(ed.QuestionId))
             .Select(ed => ed.QuestionId);
 
         var wrongCount = await wrongProgressQIds.Union(wrongExamQIds).Distinct().CountAsync();
@@ -301,7 +309,7 @@ public class QuestionsController : ControllerBase
             if (dto.IsCorrect)
             {
                 progress.CorrectStreak++;
-                if (progress.CorrectStreak >= 2) progress.IsMastered = true;
+                progress.IsMastered = true; // Mark as Mastered immediately on correct answer!
             }
             else
             {
