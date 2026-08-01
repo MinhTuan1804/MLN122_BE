@@ -106,6 +106,17 @@ using (var scope = app.Services.CreateScope())
                 UPDATE ""Questions"" SET ""Content"" = 'Theo C.Mác, khối lượng giá trị thặng dư là gì?' WHERE ""QuestionNum"" = 'Câu 166' OR ""QuestionNum"" = '166' OR ""Id"" = 166;
                 UPDATE ""Questions"" SET ""Content"" = 'Theo C. Mác, yếu tố nào sau đây là hàng hóa đặc biệt?' WHERE ""QuestionNum"" = 'Câu 506' OR ""QuestionNum"" = '506' OR ""Id"" = 506;
                 UPDATE ""Questions"" SET ""Content"" = 'Điền vào chỗ trống. C. Mác và Ph. Ăngghen đã nhận xét rằng: ""Giai cấp tư sản, trong quá trình thống trị giai cấp chưa đầy một thế kỉ, đã tạo ra những ... nhiều hơn và đồ sộ hơn ... của tất cả các thế hệ trước kia gộp lại""' WHERE ""QuestionNum"" = 'Câu 237' OR ""QuestionNum"" = '237' OR ""Id"" = 237;
+                UPDATE ""Questions"" SET ""Content"" = 'Nội dung về kinh tế chính trị của C. Mác được trình bày tập trung trong tác phẩm nào?' WHERE ""QuestionNum"" = 'Câu 70' OR ""QuestionNum"" = '70' OR ""Id"" = 70;
+                UPDATE ""Questions"" SET ""Content"" = 'Ngoài giá trị thì giá cả của thị trường còn phụ thuộc vào những yếu tố nào?' WHERE ""QuestionNum"" = 'Câu 113' OR ""QuestionNum"" = '113' OR ""Id"" = 113;
+                UPDATE ""Questions"" SET ""Content"" = 'Lý luận kinh tế chính trị của C. Mác được trình bày tập trung nhất trong tác phẩm nào?' WHERE ""QuestionNum"" = 'Câu 122' OR ""QuestionNum"" = '122' OR ""Id"" = 122;
+                UPDATE ""Questions"" SET ""Content"" = 'Xuất khẩu tư bản được coi là đặc điểm của giai đoạn nào?' WHERE ""QuestionNum"" = 'Câu 202' OR ""QuestionNum"" = '202' OR ""Id"" = 202;
+                UPDATE ""Questions"" SET ""Content"" = 'Kinh tế - chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của học thuyết nào?' WHERE ""QuestionNum"" = 'Câu 218' OR ""QuestionNum"" = '218' OR ""Id"" = 218;
+                UPDATE ""Questions"" SET ""Content"" = 'Giá trị cá biệt của hàng hoá do yếu tố nào quyết định?' WHERE ""QuestionNum"" = 'Câu 246' OR ""QuestionNum"" = '246' OR ""Id"" = 246;
+                UPDATE ""Questions"" SET ""Content"" = 'Cặp phạm trù nào là phát hiện riêng của C. Mác?' WHERE ""QuestionNum"" = 'Câu 307' OR ""QuestionNum"" = '307' OR ""Id"" = 307;
+                UPDATE ""Questions"" SET ""Content"" = 'Học thuyết kinh tế nào của C.Mác được coi là hòn đá tảng?' WHERE ""QuestionNum"" = 'Câu 308' OR ""QuestionNum"" = '308' OR ""Id"" = 308;
+                UPDATE ""Questions"" SET ""Content"" = 'Mục đích của sản xuất hàng hóa là thỏa mãn nhu cầu của đối tượng nào?' WHERE ""QuestionNum"" = 'Câu 339' OR ""QuestionNum"" = '339' OR ""Id"" = 339;
+                UPDATE ""Questions"" SET ""Content"" = 'Tích tụ và tập trung tư bản giống nhau ở điểm nào?' WHERE ""QuestionNum"" = 'Câu 354' OR ""QuestionNum"" = '354' OR ""Id"" = 354;
+                UPDATE ""Questions"" SET ""Content"" = 'Sự phát triển của tư bản tài chính dẫn đến sự hình thành của tổ chức/giai tầng nào?' WHERE ""QuestionNum"" = 'Câu 361' OR ""QuestionNum"" = '361' OR ""Id"" = 361;
             ");
         }
         catch (Exception ex)
