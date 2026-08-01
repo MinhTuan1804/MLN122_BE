@@ -105,6 +105,7 @@ using (var scope = app.Services.CreateScope())
                 UPDATE ""Questions"" SET ""Content"" = 'Theo C. Mác, hàng hoá là sản phẩm lao động được sản xuất ra nhằm mục đích gì?' WHERE ""QuestionNum"" = 'Câu 165' OR ""QuestionNum"" = '165' OR ""Id"" = 165;
                 UPDATE ""Questions"" SET ""Content"" = 'Theo C.Mác, khối lượng giá trị thặng dư là gì?' WHERE ""QuestionNum"" = 'Câu 166' OR ""QuestionNum"" = '166' OR ""Id"" = 166;
                 UPDATE ""Questions"" SET ""Content"" = 'Theo C. Mác, yếu tố nào sau đây là hàng hóa đặc biệt?' WHERE ""QuestionNum"" = 'Câu 506' OR ""QuestionNum"" = '506' OR ""Id"" = 506;
+                UPDATE ""Questions"" SET ""Content"" = 'Điền vào chỗ trống. C. Mác và Ph. Ăngghen đã nhận xét rằng: ""Giai cấp tư sản, trong quá trình thống trị giai cấp chưa đầy một thế kỉ, đã tạo ra những ... nhiều hơn và đồ sộ hơn ... của tất cả các thế hệ trước kia gộp lại""' WHERE ""QuestionNum"" = 'Câu 237' OR ""QuestionNum"" = '237' OR ""Id"" = 237;
             ");
         }
         catch (Exception ex)
