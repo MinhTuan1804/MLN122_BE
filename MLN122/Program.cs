@@ -102,6 +102,9 @@ using (var scope = app.Services.CreateScope())
                 ALTER TABLE ""Users"" ADD COLUMN IF NOT EXISTS ""LastQuestionIndex"" integer NOT NULL DEFAULT 0;
                 ALTER TABLE ""Users"" ADD COLUMN IF NOT EXISTS ""LastStudyMode"" text NOT NULL DEFAULT 'flashcard';
                 ALTER TABLE ""Users"" ADD COLUMN IF NOT EXISTS ""LastFilterType"" text NOT NULL DEFAULT 'all';
+                UPDATE ""Questions"" SET ""Content"" = 'Theo C. Mác, hàng hoá là sản phẩm lao động được sản xuất ra nhằm mục đích gì?' WHERE ""QuestionNum"" = 'Câu 165';
+                UPDATE ""Questions"" SET ""Content"" = 'Theo C.Mác, khối lượng giá trị thặng dư là gì?' WHERE ""QuestionNum"" = 'Câu 166';
+                UPDATE ""Questions"" SET ""Content"" = 'Theo C. Mác, yếu tố nào sau đây là hàng hóa đặc biệt?' WHERE ""QuestionNum"" = 'Câu 506';
             ");
         }
         catch (Exception ex)
