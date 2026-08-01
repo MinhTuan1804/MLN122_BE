@@ -56,6 +56,8 @@ public class ExamController : ControllerBase
                 q.Id,
                 q.QuestionNum,
                 q.Content,
+                IsMultiSelect = (q.CorrectAnswer != null && q.CorrectAnswer.Contains(",")) ||
+                                (q.Content != null && (q.Content.ToLower().Contains("chọn") || q.Content.ToLower().Contains("lựa chọn") || q.Content.ToLower().Contains("phương án")) && !q.Content.ToLower().Contains("đúng nhất")),
                 Options = q.Options.OrderBy(o => o.Key).Select(o => new { o.Id, o.Key, o.Content })
             })
         };
